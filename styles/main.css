@@ -6,20 +6,20 @@
 }
 
 :root {
-    --primary-color: #6366f1;
-    --primary-dark: #4f46e5;
-    --secondary-color: #f59e0b;
-    --text-primary: #1f2937;
-    --text-secondary: #6b7280;
-    --text-light: #9ca3af;
-    --background: #ffffff;
-    --background-light: #f9fafb;
-    --background-dark: #111827;
-    --border-color: #e5e7eb;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-    --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    --primary-color: #6b7c32;
+    --primary-dark: #556b2f;
+    --secondary-color: #ff8c42;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --text-light: #718096;
+    --background: #1a202c;
+    --background-light: #2d3748;
+    --background-dark: #0f1419;
+    --border-color: #4a5568;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    --gradient-primary: linear-gradient(135deg, #6b7c32 0%, #8b9a46 100%);
+    --gradient-secondary: linear-gradient(135deg, #ff8c42 0%, #ffa366 100%);
     --border-radius: 0.5rem;
     --border-radius-lg: 1rem;
     --transition: all 0.3s ease;
@@ -44,7 +44,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(26, 32, 44, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
@@ -129,7 +129,7 @@ body {
 /* Hero Section */
 .hero {
     padding: 120px 0 80px;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -247,7 +247,7 @@ body {
 .shape-3 {
     width: 100px;
     height: 100px;
-    background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+    background: linear-gradient(135deg, #ff8c42 0%, #ffa366 100%);
     bottom: 20%;
     left: 40%;
     animation-delay: 4s;
@@ -427,7 +427,7 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--text-primary);
+    background: var(--background-dark);
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -479,7 +479,7 @@ body {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: white;
+        background-color: var(--background);
         width: 100%;
         text-align: center;
         transition: 0.3s;
