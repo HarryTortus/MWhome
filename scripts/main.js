@@ -5,7 +5,118 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeProjectFilter();
     initializeSmoothScrolling();
     initializeScrollEffects();
+    initializeCursorEffects();
+    initializeParticleEffects();
+    initializeRandomColorAnimations();
 });
+
+// Cursor Effects
+function initializeCursorEffects() {
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+    
+    const cursorFollower = document.createElement('div');
+    cursorFollower.className = 'cursor-follower';
+    document.body.appendChild(cursorFollower);
+    
+    let cursorX = 0, cursorY = 0;
+    let followerX = 0, followerY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        cursorX = e.clientX;
+        cursorY = e.clientY;
+        
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+    });
+    
+    // Smooth follower animation
+    function animateCursorFollower() {
+        followerX += (cursorX - followerX) * 0.1;
+        followerY += (cursorY - followerY) * 0.1;
+        
+        cursorFollower.style.left = followerX + 'px';
+        cursorFollower.style.top = followerY + 'px';
+        
+        requestAnimationFrame(animateCursorFollower);
+    }
+    
+    animateCursorFollower();
+    
+    // Interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .project-item');
+    
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('cursor-grow');
+            cursorFollower.classList.add('cursor-grow');
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-grow');
+            cursorFollower.classList.remove('cursor-grow');
+        });
+    });
+}
+
+// Particle Effects
+function initializeParticleEffects() {
+    const heroSection = document.querySelector('.hero');
+    const particleCount = 15;
+    
+    for (let i = 0; i < particleCount; i++) {
+        createFloatingParticle(heroSection, i);
+    }
+}
+
+function createFloatingParticle(container, index) {
+    const particle = document.createElement('div');
+    particle.className = 'dynamic-particle';
+    particle.style.cssText = `
+        position: absolute;
+        width: ${Math.random() * 6 + 2}px;
+        height: ${Math.random() * 6 + 2}px;
+        background: ${getRandomAccentColor()};
+        border-radius: 50%;
+        pointer-events: none;
+        top: ${Math.random() * 100}%;
+        left: ${Math.random() * 100}%;
+        animation: dynamicFloat ${15 + Math.random() * 10}s linear infinite;
+        animation-delay: ${index * 0.5}s;
+        box-shadow: 0 0 10px currentColor;
+        opacity: 0.6;
+    `;
+    
+    container.appendChild(particle);
+}
+
+function getRandomAccentColor() {
+    const colors = [
+        'var(--accent-red)',
+        'var(--accent-yellow)',
+        'var(--accent-blue)',
+        'var(--primary-color)',
+        'var(--secondary-color)'
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+// Random Color Animations
+function initializeRandomColorAnimations() {
+    const shapes = document.querySelectorAll('.shape');
+    
+    shapes.forEach((shape, index) => {
+        setInterval(() => {
+            if (Math.random() > 0.7) { // 30% chance every interval
+                shape.style.filter = `hue-rotate(${Math.random() * 360}deg) brightness(1.2)`;
+                setTimeout(() => {
+                    shape.style.filter = '';
+                }, 1000);
+            }
+        }, 3000 + index * 500);
+    });
+}
 
 // Navigation Menu Toggle
 function initializeNavigation() {

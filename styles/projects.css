@@ -1,7 +1,22 @@
 /* Projects Section Styles */
 .projects {
-    padding: 80px 0;
+    padding: 100px 0;
     background: var(--background);
+    position: relative;
+}
+
+.projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(255, 0, 102, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 136, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 /* Project Filter */
@@ -14,54 +29,100 @@
 }
 
 .filter-btn {
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2rem;
     border: 2px solid var(--border-color);
     background: transparent;
     color: var(--text-secondary);
-    border-radius: var(--border-radius);
-    font-weight: 500;
+    border-radius: var(--border-radius-lg);
+    font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-accent);
+    transition: left 0.5s ease;
+    opacity: 0.1;
+}
+
+.filter-btn:hover::before {
+    left: 0;
 }
 
 .filter-btn:hover {
     border-color: var(--primary-color);
     color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
 }
 
 .filter-btn.active {
     background: var(--gradient-primary);
     border-color: transparent;
     color: white;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow), 0 0 30px rgba(0, 255, 136, 0.4);
+    transform: translateY(-3px) scale(1.05);
 }
 
 /* Project Grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    perspective: 1000px;
 }
 
 .project-item {
-    background: var(--background-light);
-    border-radius: var(--border-radius-lg);
+    background: var(--background-card);
+    border-radius: var(--border-radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
     opacity: 1;
-    transform: scale(1);
+    transform: perspective(1000px) rotateY(0deg) scale(1);
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.project-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: var(--transition);
+    border-radius: var(--border-radius-xl);
+    z-index: -1;
+}
+
+.project-item:hover::before {
+    opacity: 0.1;
 }
 
 .project-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: perspective(1000px) rotateY(5deg) rotateX(5deg) translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-lg), 0 0 50px rgba(0, 255, 136, 0.3);
+    border-color: var(--primary-color);
 }
 
 .project-item.hidden {
     opacity: 0;
-    transform: scale(0.8);
+    transform: perspective(1000px) rotateY(90deg) scale(0.8);
     pointer-events: none;
 }
 
@@ -151,25 +212,70 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Category-specific styling */
+/* Category-specific styling with dynamic colors */
 .project-item[data-category="3d-models"] .placeholder-image {
-    background: linear-gradient(135deg, #6b7c32 0%, #8b9a46 100%);
+    background: var(--gradient-primary);
+    animation: rotate3D 10s linear infinite;
 }
 
 .project-item[data-category="sculptures"] .placeholder-image {
-    background: linear-gradient(135deg, #ff8c42 0%, #ffa366 100%);
+    background: radial-gradient(circle at 30% 30%, var(--secondary-color), var(--secondary-dark));
+    animation: sculpturePulse 6s ease-in-out infinite;
 }
 
 .project-item[data-category="games"] .placeholder-image {
-    background: linear-gradient(135deg, #556b2f 0%, #6b7c32 100%);
+    background: conic-gradient(
+        var(--accent-red) 0deg,
+        var(--accent-blue) 120deg,
+        var(--accent-yellow) 240deg,
+        var(--accent-red) 360deg
+    );
+    animation: gameGlow 4s ease-in-out infinite;
 }
 
 .project-item[data-category="apps"] .placeholder-image {
-    background: linear-gradient(135deg, #ffb380 0%, #ff8c42 100%);
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--primary-color) 100%);
+    animation: appShimmer 5s ease-in-out infinite;
 }
 
 .project-item[data-category="multimedia"] .placeholder-image {
-    background: linear-gradient(135deg, #8b9a46 0%, #6b7c32 100%);
+    background: var(--gradient-accent);
+    animation: multimediaFlow 8s ease-in-out infinite;
+}
+
+@keyframes rotate3D {
+    0% { transform: rotateY(0deg) rotateX(0deg); }
+    25% { transform: rotateY(90deg) rotateX(15deg); }
+    50% { transform: rotateY(180deg) rotateX(0deg); }
+    75% { transform: rotateY(270deg) rotateX(-15deg); }
+    100% { transform: rotateY(360deg) rotateX(0deg); }
+}
+
+@keyframes sculpturePulse {
+    0%, 100% { transform: scale(1) rotateZ(0deg); filter: brightness(1); }
+    50% { transform: scale(1.05) rotateZ(5deg); filter: brightness(1.2); }
+}
+
+@keyframes gameGlow {
+    0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+    33% { filter: hue-rotate(120deg) brightness(1.1); }
+    66% { filter: hue-rotate(240deg) brightness(1.1); }
+}
+
+@keyframes appShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes multimediaFlow {
+    0%, 100% { 
+        background-position: 0% 50%;
+        transform: perspective(500px) rotateY(0deg);
+    }
+    50% { 
+        background-position: 100% 50%;
+        transform: perspective(500px) rotateY(10deg);
+    }
 }
 
 /* Animation for filtering */
