@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MW Creative Projects - Portfolio</title>
-    <meta name="description" content="MW Creative Portfolio - Showcasing 3D models, sculptures, games, apps, and multimedia projects">
+    <title>MW Creative</title>
+    <meta name="description" content="MW Creative - Simple portfolio showcasing sculptures, 3D models, and games">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/projects.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -17,7 +14,6 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <h1>MW</h1>
-                <span>Creative</span>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
@@ -43,46 +39,16 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-container">
+        <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Creative Digital Experiences</h1>
+                <h1 class="hero-title">MW Creative</h1>
                 <p class="hero-subtitle">
-                    Exploring the intersection of art, technology, and innovation through 
-                    3D modeling, sculpture, game development, and multimedia projects.
+                    Showcasing sculptures, 3D models, and games
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-shapes">
-                    <div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
-                    <div class="shape shape-3"></div>
-                    <div class="shape shape-4"></div>
-                    <div class="shape shape-5"></div>
-                    <div class="shape shape-6"></div>
-                    <div class="shape shape-7"></div>
-                    <div class="shape shape-8"></div>
-                    <!-- Additional abstract particles -->
-                    <div class="particle particle-1"></div>
-                    <div class="particle particle-2"></div>
-                    <div class="particle particle-3"></div>
-                    <div class="particle particle-4"></div>
-                    <div class="particle particle-5"></div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Dynamic background grid -->
-        <div class="background-grid"></div>
-        
-        <!-- Floating abstract elements -->
-        <div class="floating-elements">
-            <div class="float-element float-1"></div>
-            <div class="float-element float-2"></div>
-            <div class="float-element float-3"></div>
         </div>
     </section>
 
@@ -90,114 +56,34 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <h2>Featured Projects</h2>
-                <p>A showcase of creative works across different mediums and technologies</p>
+                <h2>Projects</h2>
+                <p>A collection of creative works</p>
             </div>
 
-            <!-- Project Filter -->
-            <div class="project-filter">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="3d-models">3D Models</button>
-                <button class="filter-btn" data-filter="sculptures">Sculptures</button>
-                <button class="filter-btn" data-filter="games">Games</button>
-                <button class="filter-btn" data-filter="apps">Apps</button>
-                <button class="filter-btn" data-filter="multimedia">Multimedia</button>
-            </div>
-
-            <!-- Project Grid -->
-            <div class="project-grid">
-                <!-- 3D Models -->
-                <div class="project-item" data-category="3d-models">
-                    <div class="project-image">
-                        <div class="placeholder-image">3D Model Preview</div>
-                        <div class="project-overlay">
-                            <h3>Architectural Visualization</h3>
-                            <p>Modern building design with detailed texturing</p>
-                            <div class="project-tags">
-                                <span class="tag">Blender</span>
-                                <span class="tag">3D Modeling</span>
-                            </div>
-                        </div>
+            <!-- Project Categories -->
+            <div class="project-categories">
+                <div class="category-card">
+                    <h3>Sculpture</h3>
+                    <div class="category-image">
+                        <div class="placeholder-image">Sculpture Work</div>
                     </div>
+                    <p>Traditional and digital sculpture pieces</p>
                 </div>
 
-                <div class="project-item" data-category="3d-models">
-                    <div class="project-image">
-                        <div class="placeholder-image">3D Character</div>
-                        <div class="project-overlay">
-                            <h3>Character Design</h3>
-                            <p>Stylized character for game development</p>
-                            <div class="project-tags">
-                                <span class="tag">Maya</span>
-                                <span class="tag">Character Design</span>
-                            </div>
-                        </div>
+                <div class="category-card">
+                    <h3>3D Models</h3>
+                    <div class="category-image">
+                        <div class="placeholder-image">3D Model</div>
                     </div>
+                    <p>Detailed 3D modeling and visualization</p>
                 </div>
 
-                <!-- Sculptures -->
-                <div class="project-item" data-category="sculptures">
-                    <div class="project-image">
-                        <div class="placeholder-image">Sculpture Photo</div>
-                        <div class="project-overlay">
-                            <h3>Abstract Form Study</h3>
-                            <p>Contemporary sculpture exploring organic shapes</p>
-                            <div class="project-tags">
-                                <span class="tag">Clay</span>
-                                <span class="tag">Abstract</span>
-                            </div>
-                        </div>
+                <div class="category-card">
+                    <h3>Games</h3>
+                    <div class="category-image">
+                        <div class="placeholder-image">Game Project</div>
                     </div>
-                </div>
-
-                <!-- Games -->
-                <div class="project-item" data-category="games">
-                    <div class="project-image">
-                        <div class="placeholder-image">Game Screenshot</div>
-                        <div class="project-overlay">
-                            <h3>Indie Puzzle Game</h3>
-                            <p>Mind-bending puzzle mechanics with unique art style</p>
-                            <div class="project-tags">
-                                <span class="tag">Unity</span>
-                                <span class="tag">C#</span>
-                                <span class="tag">Puzzle</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-                <!-- Multimedia -->
-                <div class="project-item" data-category="multimedia">
-                    <div class="project-image">
-                        <div class="placeholder-image">Video Thumbnail</div>
-                        <div class="project-overlay">
-                            <h3>Interactive Installation</h3>
-                            <p>Motion-responsive digital art installation</p>
-                            <div class="project-tags">
-                                <span class="tag">Processing</span>
-                                <span class="tag">Interactive</span>
-                                <span class="tag">Sensors</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item" data-category="multimedia">
-                    <div class="project-image">
-                        <div class="placeholder-image">Animation Still</div>
-                        <div class="project-overlay">
-                            <h3>Motion Graphics</h3>
-                            <p>Animated sequence for digital media</p>
-                            <div class="project-tags">
-                                <span class="tag">After Effects</span>
-                                <span class="tag">Animation</span>
-                            </div>
-                        </div>
-                    </div>
+                    <p>Interactive game development</p>
                 </div>
             </div>
         </div>
@@ -208,35 +94,18 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>About MW Creative</h2>
+                    <h2>About</h2>
                     <p>
-                        Welcome to my creative digital space. I'm passionate about exploring the boundaries 
-                        between traditional art forms and cutting-edge technology. My work spans across 
-                        multiple disciplines, from tangible sculptures to immersive digital experiences.
+                        I create digital and traditional art across multiple mediums.
+                        My work focuses on sculpture, 3D modeling, and game development.
                     </p>
                     <p>
-                        Whether creating detailed 3D models, developing interactive games, building useful 
-                        applications, or crafting multimedia installations, I strive to push creative 
-                        boundaries and tell compelling stories through various mediums.
+                        Each project explores different creative possibilities and
+                        pushes the boundaries of what's possible in digital art.
                     </p>
-                    <div class="skills">
-                        <h3>Skills & Tools</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">3D Modeling</span>
-                            <span class="skill-tag">Game Development</span>
-                            <span class="skill-tag">App Development</span>
-                            <span class="skill-tag">Digital Sculpture</span>
-                            <span class="skill-tag">Interactive Media</span>
-                            <span class="skill-tag">VR/AR</span>
-                            <span class="skill-tag">Animation</span>
-                            <span class="skill-tag">UI/UX Design</span>
-                        </div>
-                    </div>
                 </div>
-                <div class="about-visual">
-                    <div class="about-image-placeholder">
-                        <span>Profile / Workspace Image</span>
-                    </div>
+                <div class="about-image">
+                    <div class="placeholder-image">Profile Image</div>
                 </div>
             </div>
         </div>
@@ -246,24 +115,15 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="contact-content">
-                <h2>Let's Create Together</h2>
-                <p>Interested in collaborating or discussing a project? I'd love to hear from you.</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h3>Get In Touch</h3>
-                        <p>Ready to bring your creative vision to life? Let's start a conversation.</p>
-                        <div class="contact-links">
-                            <a href="mailto:contact@mwcreative.com" class="contact-link">
-                                <span>Email</span>
-                            </a>
-                            <a href="#" class="contact-link">
-                                <span>Portfolio</span>
-                            </a>
-                            <a href="#" class="contact-link">
-                                <span>LinkedIn</span>
-                            </a>
-                        </div>
-                    </div>
+                <h2>Contact</h2>
+                <p>Get in touch to discuss potential collaborations.</p>
+                <div class="contact-links">
+                    <a href="mailto:contact@mwcreative.com" class="contact-link">
+                        Email
+                    </a>
+                    <a href="#" class="contact-link">
+                        Portfolio
+                    </a>
                 </div>
             </div>
         </div>
@@ -273,18 +133,6 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>MW Creative</h3>
-                    <p>Digital creativity meets artistic vision</p>
-                </div>
-                <div class="footer-nav">
-                    <a href="#home">Home</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
                 <p>&copy; 2024 MW Creative. All rights reserved.</p>
             </div>
         </div>
